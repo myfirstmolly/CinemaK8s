@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cinema-gw
+spec:
+  type: ClusterIP
+  ports:
+    - name: "cinema-gateway"
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: cinema-gw

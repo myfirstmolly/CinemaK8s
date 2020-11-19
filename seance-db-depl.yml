@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-seance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-seance
+  template:
+    metadata:
+      labels:
+        app: db-seance
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: seance
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_USER
+              value: postgres
+          image: postgres
+          imagePullPolicy: IfNotPresent
+          name: db-seance
+          ports:
+            - containerPort: 5432

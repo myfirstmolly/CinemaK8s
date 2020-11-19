@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-hall
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-hall
+  template:
+    metadata:
+      labels:
+        app: db-hall
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: hall
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_USER
+              value: postgres
+          image: postgres
+          imagePullPolicy: IfNotPresent
+          name: db-hall
+          ports:
+            - containerPort: 5432

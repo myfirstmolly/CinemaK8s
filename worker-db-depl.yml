@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-worker
+  template:
+    metadata:
+      labels:
+        app: db-worker
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: worker
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_USER
+              value: postgres
+          image: postgres
+          imagePullPolicy: IfNotPresent
+          name: db-worker
+          ports:
+            - containerPort: 5432

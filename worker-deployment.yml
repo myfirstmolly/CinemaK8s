@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-workers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-workers
+  template:
+    metadata:
+      labels:
+        app: cinema-workers
+    spec:
+      containers:
+        -
+          image: myfirstmolly/worker
+          name: cinema-halls
+          ports:
+            -
+              containerPort: 8085

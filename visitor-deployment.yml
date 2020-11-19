@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-visitors
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-visitors
+  template:
+    metadata:
+      labels:
+        app: cinema-visitors
+    spec:
+      containers:
+        -
+          image: myfirstmolly/visitor
+          name: cinema-visitors
+          ports:
+            -
+              containerPort: 8084

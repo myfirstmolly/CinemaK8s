@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-gw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-gw
+  template:
+    metadata:
+      labels:
+        app: cinema-gw
+    spec:
+      containers:
+        -
+          image: myfirstmolly/gateway
+          name: cinema-gw
+          ports:
+            -
+              containerPort: 8080

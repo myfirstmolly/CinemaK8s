@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-halls
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-halls
+  template:
+    metadata:
+      labels:
+        app: cinema-halls
+    spec:
+      containers:
+        -
+          image: myfirstmolly/hall
+          name: cinema-halls
+          ports:
+            -
+              containerPort: 8083

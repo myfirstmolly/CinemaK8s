@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-films
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-films
+  template:
+    metadata:
+      labels:
+        app: cinema-films
+    spec:
+      containers:
+        -
+          image: myfirstmolly/film
+          name: cinema-films
+          ports:
+            -
+              containerPort: 8081

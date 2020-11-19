@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-worker
+spec:
+  type: ClusterIP
+  ports:
+    - name: "db-worker"
+      port: 5432
+      targetPort: 5432
+  selector:
+    app: db-worker

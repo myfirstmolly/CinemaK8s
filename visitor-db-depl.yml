@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-visitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-visitor
+  template:
+    metadata:
+      labels:
+        app: db-visitor
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: visitor
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_USER
+              value: postgres
+          image: postgres
+          imagePullPolicy: IfNotPresent
+          name: db-visitor
+          ports:
+            - containerPort: 5432

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-film
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-film
+  template:
+    metadata:
+      labels:
+        app: db-film
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: film
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_USER
+              value: postgres
+          image: postgres
+          imagePullPolicy: IfNotPresent
+          name: db-film
+          ports:
+            - containerPort: 5432
