@@ -17,5 +17,7 @@ spec:
           image: myfirstmolly/gateway
           name: cinema-gw
           ports:
-            -
-              containerPort: 8080
+            - containerPort: 8080
+              name: rest
+            - containerPort: 7080
+              name: grpc

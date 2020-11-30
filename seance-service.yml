@@ -5,8 +5,11 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: "cinema-seances"
+    - name: rest
       port: 8082
       targetPort: 8082
+    - name: grpc
+      port: 7082
+      targetPort: 7082
   selector:
     app: cinema-seances

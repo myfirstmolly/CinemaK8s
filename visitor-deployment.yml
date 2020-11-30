@@ -17,5 +17,7 @@ spec:
           image: myfirstmolly/visitor
           name: cinema-visitors
           ports:
-            -
-              containerPort: 8084
+            - containerPort: 8084
+              name: rest
+            - containerPort: 7084
+              name: grpc

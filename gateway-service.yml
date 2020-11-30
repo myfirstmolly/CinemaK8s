@@ -5,8 +5,11 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: "cinema-gateway"
+    - name: rest
       port: 8080
       targetPort: 8080
+    - name: grpc
+      port: 7080
+      targetPort: 7080
   selector:
     app: cinema-gw

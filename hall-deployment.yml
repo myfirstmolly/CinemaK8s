@@ -17,5 +17,7 @@ spec:
           image: myfirstmolly/hall
           name: cinema-halls
           ports:
-            -
-              containerPort: 8083
+            - containerPort: 8083
+              name: rest
+            - containerPort: 7083
+              name: grpc

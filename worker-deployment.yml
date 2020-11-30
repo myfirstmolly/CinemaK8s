@@ -17,5 +17,7 @@ spec:
           image: myfirstmolly/worker
           name: cinema-halls
           ports:
-            -
-              containerPort: 8085
+            - containerPort: 8085
+              name: rest
+            - containerPort: 7085
+              name: grpc
